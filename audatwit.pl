@@ -34,7 +34,7 @@ if (`ps -C audacious` =~ /audacious/) {
         chomp $songtitle;
         chomp $artist;
 
-        my $music = "#nowplaying $songtitle - $artist. Powered by: audacious.";
+        my $music = "#nowplaying $songtitle - $artist. #audacious";
 
         print($music."\n");
         $bot->update($music);
