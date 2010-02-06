@@ -40,9 +40,20 @@ if (`ps -C audacious` =~ /audacious/) {
         chomp $artist;
 
         my $music = "#nowplaying $songtitle - $artist. #audacious";
-	
+	#$music =~ s/^(.{137}).*$/$1.../s if length($music) > 140;
+
 	if ($input eq "debug") {
 	    print($music."\n");
+            
+	    print("Do you post this? (y/N): ");
+            my $what = <STDIN>;
+            chomp $what;
+	    
+	    if (($what eq "y") || ($what eq "Y")) {
+	    	$bot->update($music);
+		print ("Done.\n");
+            } 
+	
 	} else 
 	  {
 	    $bot->update($music);
