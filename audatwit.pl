@@ -20,8 +20,13 @@ my $bot = Net::Twitter::Lite->new(
 );
 
 if (($username eq "") && ($password eq "")) {
-    die "Nombre de usuario o password no definido en este archivo.\n";
+    die "Username or password is not defined!.\n";
 }
+
+my ($input) = @ARGV;
+
+# dirty hack string: FIXME
+if (!$input) { $input = "nothing"; }
 
 
 if (`ps -C audacious` =~ /audacious/) {
@@ -35,9 +40,13 @@ if (`ps -C audacious` =~ /audacious/) {
         chomp $artist;
 
         my $music = "#nowplaying $songtitle - $artist. #audacious";
-
-        print($music."\n");
-        $bot->update($music);
+	
+	if ($input eq "debug") {
+	    print($music."\n");
+	} else 
+	  {
+	    $bot->update($music);
+	  }
 
 } else {
         print "Audacious is not currently running.\n";
