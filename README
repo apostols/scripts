@@ -1,10 +1,16 @@
 Repositorio de scripts caseros
 ------------------------------
 
-* audatwit.pl: audacious gateway for Twitter (Feb 2010)
-               - This uses Net::Twitter::Lite library.
-               - You can use this in debug mode: perl audatwit.pl debug
-                 (show data preview after twitter post).
+* audatwit.pl:		audacious gateway for Twitter (Feb 2010)
+               		- This uses Net::Twitter::Lite library.
+               		- You can use this in debug mode: perl audatwit.pl debug
+                 	(show data preview after twitter post).
+
+* bitly_irssi.pl:	url shorten for irssi using bit.ly service (Ago 2010)
+               		- This uses WWW::Shorten::Bitly library.
+			- You need to configure the data API bit.ly (user and apikey).
+
+
 
 
 
